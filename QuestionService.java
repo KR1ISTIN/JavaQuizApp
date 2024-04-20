@@ -7,12 +7,15 @@ public class QuestionService {
     // new Questions will a one deminsional array with 5 questions
    Questions[] questions = new Questions[5];
 
+
    // this will be an array to store our answers from the user
    String selection[] = new String[5];
 
-   // default constructor
-   // assigning values in questions array
+
+   // default constructor, gets created when class gets created automatically
+   // assigning index values in questions array
    public QuestionService() {
+    // new Questions is calling the parameterized constructor to set values
     questions[0] = new Questions(1, "size of int?", "2", "6", "4", "8", "4");
     questions[1] = new Questions(2, "size of double?", "2", "6", "4", "8", "8");
     questions[2] = new Questions(3, "size of char?", "2", "6", "4", "8", "2");
@@ -21,7 +24,7 @@ public class QuestionService {
 
    }
 
-   // displaying questions method
+   // -------------- displaying questions method ------------
    public void playQuiz() {
     // creating i to keep track of the index value to store the answer is selections array
     int i = 0;
@@ -40,11 +43,30 @@ public class QuestionService {
         i++; // adding i one time to loop to next index
     }
 
-    // printing all the users answers from input
+    // --------------- printing all the users answers from input---------
     System.out.println();
     for(String s : selection) {
-        System.out.println("Answer:" + s);
+        System.out.println("Answer: " + s);
     }
+   }
+
+   // ---------- method to keep track of the score ---------
+   public void printScore() {
+    int score = 0; // setting inital value of score
+
+    for(int i = 0; i < questions.length; i++) {
+
+        // getting question from the array
+        Questions que = questions[i]; // looping through each question
+        String correctAnswer = que.getAnswer();  // getting answer from that question
+        String userAnswer = selection[i]; // getting answer from user
+
+        if(correctAnswer.equals(userAnswer)) {
+            score++;
+        }
+
+    }
+    System.out.print("Your score is: " + score);
    }
    
     
