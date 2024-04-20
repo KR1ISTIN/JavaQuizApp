@@ -72,8 +72,14 @@ public class Questions {
         this.answer = answer;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Question [id=" + id + ", questions=" + questions + ", opt1=" + opt1 + ", opt2=" + opt2 + ", opt3="
+                + opt3 + ", opt4=" + opt4 + ", answer=" + answer + "]";
+    }
 
+    
+    
 
 
 }
